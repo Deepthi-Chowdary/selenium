@@ -1,0 +1,43 @@
+# selenium
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+
+public class HomePage {
+	static By searchbox=By.xpath("//*[@id=\"main-nav\"]/form/fieldset/input[1]");
+	static By textsearch=By.xpath("//*[contains(text(),'Apple iPhone 4S 32GB SIM-Free – White')]");
+	static By addtocart=By.xpath("//*[@id=\"grid_view_products_page_container\"]/div/div[1]/div[3]/form/div/div[1]/span/input");
+	private static WebElement element;
+	
+	
+	  public static WebElement search(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(searchbox);
+	  
+	     return element;
+	  
+	  }
+	  
+	  public static WebElement typeiPhone(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(textsearch);
+	     if(element.isDisplayed()) {
+	        	System.out.println("Element present");
+	        	//add to cart
+	        	driver.findElement(addtocart).click();
+	     }
+	     else {
+	        System.out.println("Element not present");
+	     }      
+	  
+	  return element;      
+	  }
+	  
+	  
+	  
+}
