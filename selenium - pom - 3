@@ -1,0 +1,50 @@
+# selenium
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class CheckoutPage {
+	
+	  static By checkout=By.xpath("//*[@id=\"header_cart\"]/a");
+	  static By updatetext=By.xpath("//*[@id=\"checkout_page_container\"]/div[1]/table/tbody/tr[2]/td[3]/form/input[1]");
+	  static By updatebtn=By.xpath("//*[@id=\"checkout_page_container\"]/div[1]/table/tbody/tr[2]/td[3]/form/input[4]");  
+	  static By continuebtn=By.xpath("//*[@id=\"checkout_page_container\"]/div[1]/a/span");
+	  
+	  
+	  
+	  private static WebElement element;
+	  public static WebElement checkoutclick(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(checkout);	  
+	     return element;
+	  
+	   }
+	  
+	  public static WebElement updatetxt(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(updatetext);
+	     element.clear();
+	     return element;
+	  
+	  }
+	  
+	  public static WebElement updateclick(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(updatebtn);
+	     return element;
+	  
+	     }
+	  public static WebElement continueclick(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(continuebtn);	  
+	     return element;
+	  
+	  }
+ 
+}
