@@ -1,0 +1,42 @@
+# selenium
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class VerifyPage {
+ 
+	static By verifyname=By.xpath("//*[@id=\"post-30\"]/div/div[2]/table/tbody/tr/td[1]");
+	static By verifyprice=By.xpath("//*[@id=\"post-30\"]/div/div[2]/table/tbody/tr/td[2]");
+	static By verifyquantity=By.xpath("//*[@id=\"post-30\"]/div/div[2]/table/tbody/tr/td[3]");
+	private static WebElement element;
+	
+	public static WebElement Verifyall(WebDriver driver)
+	{
+    	String expectedText="Apple iPhone 4S 32GB SIM-Free – White";
+	    element = driver.findElement(verifyname);
+	    String actualText=element.getText();
+
+	    
+    	String expectedPrice="$270.00";
+	    element = driver.findElement(verifyprice);
+    	String actualPrice=element.getText();
+	    
+    	String expectedQuantity="2";
+	    element = driver.findElement(verifyquantity);
+    	String actualQuantity=element.getText();
+    	if(actualText.equals(expectedText) && actualPrice.equals(expectedPrice) && actualQuantity.equals(expectedQuantity)){
+            System.out.println("Test Pass");
+            driver.navigate().to("http://store.demoqa.com/");
+        }
+        else{
+            System.out.println("Test Failed");
+        }
+
+	  
+	     return element;
+	  
+	 }
+	
+}
