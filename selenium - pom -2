@@ -1,0 +1,156 @@
+# selenium
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+public class FormPage {
+ 
+	  static By selcountry=By.xpath("//*[@id=\"current_country\"]");
+	  static By typestate=By.xpath("//*[@id=\"change_country\"]/input[2]");
+	  static By calcbtn=By.xpath("//*[@id=\"change_country\"]/input[4]");
+	  static By typeemail=By.xpath("//*[@id=\"wpsc_checkout_form_9\"]");
+	  static By firstname=By.xpath("//*[@id=\"wpsc_checkout_form_2\"]");
+	  static By lastname=By.xpath("//*[@id=\"wpsc_checkout_form_3\"]");
+	  static By address=By.xpath("//*[@id=\"wpsc_checkout_form_4\"]");
+	  static By city=By.xpath("//*[@id=\"wpsc_checkout_form_5\"]");
+	  static By state=By.xpath("//*[@id=\"wpsc_checkout_form_6\"]");
+	  static By country=By.xpath("//*[@id=\"wpsc_checkout_form_7\"]");
+	  static By pincode=By.xpath("//*[@id=\"wpsc_checkout_form_8\"]");
+	  static By phno=By.xpath("//*[@id=\"wpsc_checkout_form_18\"]");
+	  static By checkbox=By.xpath("//*[@id=\"shippingSameBilling\"]");
+	  static By purchesebtn=By.xpath("//*[@id=\"wpsc_shopping_cart_container\"]/form/div[4]/div/div/span/input");
+	  private static WebElement element;
+	  
+	  
+	  public static WebElement selectcountry(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(selcountry);
+	     Select oselect=new Select(element);
+	     oselect.selectByValue("IN");	  
+	     return element;
+	  
+	  }
+	  
+	  public static WebElement enterState(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(typestate);
+	  
+	     return element;
+	  
+	  }
+	  
+	  public static WebElement clickcalcbtn(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(calcbtn);
+	  
+	     return element;
+	  
+	  }
+	  
+	  public static WebElement entereamil(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(typeemail);
+	  
+	     return element;
+	  
+	  }
+	  
+	  public static WebElement enterfirstname(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(firstname);
+	  
+	     return element;
+	  
+	  }
+	  
+	  public static WebElement enterlastname(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(lastname);
+	  
+	     return element;
+	  
+	  }	  
+
+	  public static WebElement enteraddress(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(address);
+	  
+	     return element;
+	  
+	  }
+	  
+	  public static WebElement entercity(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(city);
+	  
+	     return element;
+	  
+	  }
+	  
+	  public static WebElement enterst(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(state);
+	  
+	     return element;
+	  
+	  }
+	  
+	  public static WebElement selcountry2(WebDriver driver)
+	  {
+	  
+	    element = driver.findElement(country);
+	    Select oselect1=new Select(element);
+	    oselect1.selectByValue("IN");	  
+	    return element;
+	  
+	  }
+	  
+	  public static WebElement enterpincode(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(pincode);
+	  
+	     return element;
+	  
+	  }
+	  
+	  public static WebElement enterphone(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(phno);
+	  
+	     return element;
+	  
+      }
+	  
+	  public static WebElement clickcheck(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(checkbox);
+	  
+	     return element;
+	  
+	  }
+	  
+	  public static WebElement clickpurchasebtn(WebDriver driver)
+	  {
+	  
+	     element = driver.findElement(purchesebtn);
+	  
+	     return element;
+	  
+	  }
+}
+
