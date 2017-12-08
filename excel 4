@@ -1,0 +1,50 @@
+# selenium
+/*package utility;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import automationFramework.Apache_POI_TC;
+//import utility.Constants;
+import utility.ExcelUtils;
+
+
+public class ReadData extends Apache_POI_TC{
+	
+	static WebDriver driver;
+	
+	 @DataProvider(name = "SearchProvider")
+
+	  public Object[][] Authentication() throws Exception{
+
+
+		 	//ExcelUtils.setExcelFile("E:\\selenium\\testData.xlsx","Sheet1");
+
+		 	
+		 	//String Text = ExcelUtils.getCellData(1,0);
+			 
+		 	
+		   // int iTestCaseRow = 0;
+			Object[][] testObjArray = ExcelUtils.getTableArray("E:\\selenium\\testData.xlsx","Sheet1",0);
+
+		    	return (testObjArray);
+
+			}
+	
+	
+	@Test(dataProvider = "SearchProvider")
+	
+	public static void Execute(String Text) {
+		
+		
+		driver.get("https://www.valuemomentum.com/search/");
+		driver.findElement(By.xpath("//*[@class='search-field']")).sendKeys(Text);
+		driver.findElement(By.xpath("//*[@class='search-submit']")).click();   
+	}
+		
+	}
+*/
+
