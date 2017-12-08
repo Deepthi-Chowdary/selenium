@@ -1,0 +1,13 @@
+# selenium
+package utility;
+
+
+public class Constants {
+	public static final String URL = "http://www.google.co.in";
+	 
+    public static final String Path = "E:\\selenium\\";
+    //public static final String Text="Valuemomentum";
+
+    public static final String File = "NewOne.xlsx";
+
+}
