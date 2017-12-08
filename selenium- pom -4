@@ -1,0 +1,84 @@
+# selenium
+package main;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import pages.HomePage;
+import pages.CheckoutPage;
+import pages.FormPage;
+import pages.VerifyPage;
+
+
+public class Init {
+	 WebDriver driver;
+	 
+		
+	   @BeforeTest
+	   public void launch()
+	   {
+		   System.setProperty("webdriver.chrome.driver", "E:\\selenium\\chromedriver.exe");
+		   driver= new ChromeDriver();
+		   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		   driver.get("http://www.store.demoqa.com");
+		   
+	   }
+	   
+	   
+	   
+	   @Test
+	   public void actualtest() throws InterruptedException
+	   {
+		
+		   HomePage.search(driver).sendKeys("iphone", Keys.ENTER);
+		   HomePage.typeiPhone(driver);
+		   
+		   Thread.sleep(1000);
+
+		   CheckoutPage.checkoutclick(driver).click();
+		   CheckoutPage.updatetxt(driver).sendKeys("2");
+		   CheckoutPage.updateclick(driver).click();
+		   CheckoutPage.continueclick(driver).click();
+		   
+		   Thread.sleep(1000);
+
+		   
+		   FormPage.selectcountry(driver);
+		   FormPage.enterState(driver).sendKeys("Telangana");
+		   FormPage.clickcalcbtn(driver).click();
+		   FormPage.entereamil(driver).sendKeys("abcde@gmail.com");
+		   FormPage.enterfirstname(driver).sendKeys("Samiksha");
+		   FormPage.enterlastname(driver).sendKeys("Kalore");
+		   FormPage.enteraddress(driver).sendKeys("Q city road,Gacchibowli");
+		   FormPage.entercity(driver).sendKeys("Hyderabad");
+		   FormPage.enterst(driver).sendKeys("Telangana");
+		   FormPage.selcountry2(driver);
+		   FormPage.enterpincode(driver).sendKeys("500032");
+		   FormPage.enterphone(driver).sendKeys("9876543210");
+		   FormPage.clickcheck(driver).click();
+		   FormPage.clickpurchasebtn(driver).click();
+		   
+		   VerifyPage.Verifyall(driver);
+
+		   
+	   }
+	   
+	   
+	   	   
+	  @AfterTest
+	  public void close()
+	  {
+			driver.close();
+		  
+	  }
+	   
+	   
+	   
+	   
+}
+
