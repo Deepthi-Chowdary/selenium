@@ -1,0 +1,91 @@
+# selenium
+package automationFramework;
+
+		import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import utility.Constants;
+import utility.ExcelUtils;
+
+
+	public class Apache_POI_TC {
+
+		 public static  WebDriver driver;
+		 private static  String sTestCaseName;
+
+			private static int iTestCaseRow;
+			
+			@Test(dataProvider = "search")
+			public static void Execute(String search,String one) {
+				
+				//driver.findElement(By.xpath("//*[@id=\"menu-item-732\"]/a/span")).click(); 
+				driver.get("https://www.valuemomentum.com/search/");
+				driver.findElement(By.xpath("//*[@class='search-field']")).sendKeys(search);
+				driver.findElement(By.xpath("//*[@class='search-submit']")).click();   
+			}
+				
+			
+			 @DataProvider(name="search")
+			 public static Object[][] search() throws Exception{
+			 
+				 	ExcelUtils.setExcelFile("E:\\selenium\\NewOne.xlsx","Sheet1");
+			 
+				 //sTestCaseName = this.toString();
+			 
+				  	//sTestCaseName = ExcelUtils.getTestCaseName(this.toString());
+			 
+			 
+				 	iTestCaseRow = ExcelUtils.getRowContains(sTestCaseName,0);
+			 
+				    Object[][] testObjArray = ExcelUtils.getTableArray("E:\\selenium\\NewOne.xlsx","Sheet1",iTestCaseRow);
+			 
+				    	return (testObjArray);
+			 
+					}
+			 
+			
+
+
+		@BeforeTest
+		public void launch() throws Exception {
+			System.setProperty("webdriver.chrome.driver", "E:\\selenium\\chromedriver.exe");
+			driver = new ChromeDriver();
+
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+			driver.get(Constants.URL);
+			WebElement element = driver.findElement(By.id("lst-ib"));
+			element.sendKeys("valuemomentum");
+			element.submit();
+			driver.findElement(By.xpath("//*[text()='ValueMomentum | IT Services & Software']")).click();
+
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		@AfterTest
+        public void close() throws Exception {
+        driver.close();
+        }
+ 
+  
+       
+
+		}
+
+	
